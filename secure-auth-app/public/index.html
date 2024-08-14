@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A secure user authentication app built with React, Node.js, and MongoDB.">
+    <meta name="keywords" content="authentication, React, Node.js, MongoDB, secure login, user registration">
+    <meta name="author" content="Bin_ym">
+    <title>Secure Auth App</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        #root {
+            flex: 1;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #fff;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05);
+        }
+        footer a {
+            color: #007bff;
+            margin: 0 5px;
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <footer>
+        <p>Copyright &copy; <span id="current-year"></span> Ym. All rights reserved.</p>
+        <p>Follow us on 
+            <a href="https://github.com/bin-ym" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/binyam-tagel/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+            <a href="https://twitter.com/BinyamTagel" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+        </p>
+    </footer>
+    <script>
+        // Set the current year dynamically
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
