@@ -1,0 +1,33 @@
+.dashboard-navbar {
+  background-color: #282c34;
+  padding: 10px 20px;
+}
+
+.dashboard-navbar .navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboard-navbar .navbar-menu {
+  display: flex;
+  list-style: none;
+}
+
+.dashboard-navbar .navbar-item {
+  margin-left: 20px;
+}
+
+.dashboard-navbar .navbar-link {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.dashboard-navbar .logout-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
