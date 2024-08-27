@@ -1,0 +1,77 @@
+/* src/App.css or src/components/ThemeProvider.css */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+  .dark-theme {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  
+  .light-theme {
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  .navbar {
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+  
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navbar-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .navbar-item {
+    margin: 0;
+  }
+  
+  .navbar-link {
+    color: inherit;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+  }
+  
+  .theme-toggle-button {
+    background: none;
+    border: none;
+    color: inherit;
+    cursor: pointer;
+  }
+  
+  /* Additional styling for light and dark themes */
+  .navbar.dark {
+    background-color: #333;
+  }
+  
+  .navbar.light {
+    background-color: #007bff; /* Blue color for light mode */
+  }
+  
+  .page-content {
+    padding: 20px;
+  }
+  
+  footer {
+    background-color: inherit;
+    color: inherit;
+    text-align: center;
+    padding: 10px;
+  }
+  

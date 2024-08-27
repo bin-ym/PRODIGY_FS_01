@@ -1,3 +1,4 @@
+// src/components/Dashboard.js
 import React from 'react';
 import '../styles.css'; // Importing styles
 

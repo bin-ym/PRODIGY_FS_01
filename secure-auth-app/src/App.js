@@ -1,3 +1,4 @@
+// src/App.js
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
@@ -24,24 +25,21 @@ function App() {
   };
 
   return (
-    <Router>
-      {isAuthenticated ? (
-        <DashboardNavbar handleLogout={handleLogout} />
-      ) : (
-        <Navbar />
-      )}
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/login"
-          element={<Login handleLogin={handleLogin} />}
-        />
-        <Route path="/register" element={<Register />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/dashboard" element={isAuthenticated ? <Dashboard /> : <Home />} />
-      </Routes>
-    </Router>
+      <Router>
+        {isAuthenticated ? (
+          <DashboardNavbar handleLogout={handleLogout} />
+        ) : (
+          <Navbar isAuthenticated={isAuthenticated} handleLogout={handleLogout} />
+        )}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login handleLogin={handleLogin} />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/dashboard" element={isAuthenticated ? <Dashboard /> : <Home />} />
+        </Routes>
+      </Router>
   );
 }
 

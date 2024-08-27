@@ -1,74 +1,80 @@
-/* src/Auth.css */
-
 .auth-container {
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #ffffff;
+  border: 1px solid #ddd;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
+  background-color: #f9f9f9;
 }
 
 .auth-container h2 {
-  color: #007bff;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth-form input,
+.auth-form .password-container {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+  position: relative;
 }
 
 .auth-form input {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
+  padding-right: 40px; /* Similar to PasswordInput */
 }
 
-/* Style for the password container and toggle button */
-.password-container {
-  position: relative;
+.auth-form .password-container {
   display: flex;
   align-items: center;
+  position: relative;
 }
 
-.password-container input {
-  padding-right: 40px; /* Space for the eye icon */
+.auth-form button {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.auth-form button:hover {
+  background-color: #0056b3;
+}
+
+.auth-container p {
+  text-align: center;
+}
+
+.auth-container a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.auth-container a:hover {
+  text-decoration: underline;
+}
+
+.error-alert {
+  color: red;
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 .toggle-password {
   position: absolute;
   right: 10px;
-  top: 50%;
-  transform: translateY(-50%); /* Center the icon vertically */
-  background: none;
-  border: none;
-  color: #007bff;
   cursor: pointer;
-}
-
-.toggle-password:hover {
-  text-decoration: underline;
-}
-
-button {
-  width: 100%;
-  padding: 10px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-.error-alert {
-  color: red;
-  background-color: #f8d7da;
-  padding: 10px;
-  border: 1px solid #f5c6cb;
-  border-radius: 4px;
-  margin-bottom: 15px;
-  text-align: center;
 }

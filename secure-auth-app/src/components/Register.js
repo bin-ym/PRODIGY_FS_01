@@ -1,35 +1,46 @@
 import React, { useState } from 'react';
+import PasswordInput from './PasswordInput';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import './Auth.css'; // Import the CSS file for styling
-import { FaEye, FaEyeSlash } from 'react-icons/fa'; // Import eye icons
 
 function Register() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false); // State to toggle confirm password visibility
+  const [error, setError] = useState(''); // State for error messages
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    setError('');
+
     if (password !== confirmPassword) {
-      alert("Passwords do not match");
+      setError('Passwords do not match');
       return;
     }
+
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/register', { username, email, password });
-      navigate('/login');
+      const response = await axios.post('http://localhost:5000/api/auth/register', {
+        username,
+        email,
+        password
+      });
+
+      // If registration is successful, redirect to the login page
+      if (response.status === 201) {
+        navigate('/login');
+      }
     } catch (error) {
-      console.error('Registration failed:', error.response ? error.response.data.message : error.message);
+      setError(error.response?.data?.message || 'Registration failed');
     }
   };
 
   return (
     <div className="auth-container">
       <h2>Register</h2>
+      {error && <div className="error-alert">{error}</div>} {/* Display error */}
       <form onSubmit={handleRegister} className="auth-form">
         <input
           type="text"
@@ -45,38 +56,16 @@ function Register() {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        <div className="password-container">
-          <input
-            type={showPassword ? 'text' : 'password'}
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <button
-            type="button"
-            className="toggle-password"
-            onClick={() => setShowPassword(!showPassword)}
-          >
-            {showPassword ? <FaEyeSlash /> : <FaEye />}
-          </button>
-        </div>
-        <div className="password-container">
-          <input
-            type={showConfirmPassword ? 'text' : 'password'}
-            placeholder="Confirm Password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-          <button
-            type="button"
-            className="toggle-password"
-            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-          >
-            {showConfirmPassword ? <FaEyeSlash /> : <FaEye />}
-          </button>
-        </div>
+        <PasswordInput
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <PasswordInput
+          placeholder="Confirm Password"
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+        />
         <button type="submit">Register</button>
       </form>
       <p>
